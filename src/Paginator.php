@@ -2,7 +2,7 @@
 
 class Paginator{
 
-	public function paginate($page_number)
+	public function paginate(int $page_number): array
 	{
 		// for the shift we use the ($page_number % 3) operation
 		// for case 0 and 1 we a call to ($page_number - $shift)
@@ -35,7 +35,7 @@ class Paginator{
 
 	}
 
-	public function getShift($page_number)
+	public function getShift(int $page_number): int
 	{
 		if($page_number === 0){
 			throw new Exception('Invalid Page Number!');
@@ -44,7 +44,7 @@ class Paginator{
 		return intdiv($page_number, 3);
 	}
 
-	public function getPage($page_number)
+	public function getPage(int $page_number): array
 	{
 		if($page_number === 0){
 			throw new Exception('Invalid Page Number!');
